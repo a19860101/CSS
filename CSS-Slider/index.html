@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>純CSS圖片輪播</title>
+<style>
+	body {
+		margin:0;
+		padding:0;
+	}
+	#slider {
+		width:100%;
+		height:600px;
+		background:#ccc;
+		position:relative;
+	}
+	.photo-1,.photo-2,.photo-3,.photo-4,.photo-5 {
+		position:absolute;
+		width:100%;
+		height:600px;
+	}
+	
+	.photo-1 {
+		z-index:10;
+		background-image:url(images/01.jpg);
+		background-size:cover;
+		background-position:center;
+		-webkit-animation:show 20s infinite linear;
+		   -moz-animation:show 20s infinite linear;
+		     -o-animation:show 20s infinite linear;
+		        animation:show 20s infinite linear;
+	}
+	.photo-2 {
+		z-index:9;
+		background-image:url(images/02.jpg);
+		background-size:cover;
+		background-position:center;
+		-webkit-animation:show 20s infinite 5s linear;
+		   -moz-animation:show 20s infinite 5s linear;
+		     -o-animation:show 20s infinite 5s linear;
+		        animation:show 20s infinite 5s linear;
+	}
+	.photo-3 {
+		z-index:8;
+		background-image:url(images/03.jpg);
+		background-size:cover;
+		background-position:center;
+		-webkit-animation:show 20s infinite 10s linear;
+		   -moz-animation:show 20s infinite 10s linear;
+		     -o-animation:show 20s infinite 10s linear;
+		        animation:show 20s infinite 10s linear;
+	}
+	.photo-4 {
+		z-index:7;
+		background-image:url(images/04.jpg);
+		background-size:cover;
+		background-position:center;
+		-webkit-animation:show 20s infinite 15s linear;
+		   -moz-animation:show 20s infinite 15s linear;
+		     -o-animation:show 20s infinite 15s linear;
+		        animation:show 20s infinite 15s linear;
+	}
+
+	@-webkit-keyframes show {
+		0%	{opacity:1;}
+		20%	{opacity:1;}
+		25%	{opacity:0;}
+		95%	{opacity:0;}
+		100%{opacity:1;}
+	}
+	@-moz-keyframes show {
+		0%	{opacity:1;}
+		20%	{opacity:1;}
+		25%	{opacity:0;}
+		95%	{opacity:0;}
+		100%{opacity:1;}
+	}
+	@-o-keyframes show {
+		0%	{opacity:1;}
+		20%	{opacity:1;}
+		25%	{opacity:0;}
+		95%	{opacity:0;}
+		100%{opacity:1;}
+	}
+	@keyframes show {
+		0%	{opacity:1;}
+		20%	{opacity:1;}
+		25%	{opacity:0;}
+		95%	{opacity:0;}
+		100%{opacity:1;}
+	}
+</style>
+</head>
+
+<body>
+<!-- 
+    
+    展示時間：x		（秒） 
+    淡出時間：y		（秒）
+    動畫時間：total	（秒）＝(x+y)* 圖片數量 = 
+    淡入時間：y		（秒）
+	隱藏秒數：z		（秒）=total-y-y-x（動畫時間-淡入-淡出-顯示）
+
+	可參考說明圖
+
+    通常淡入淡出（轉場）會設定相同秒數
+    計算動畫時間時，盡量讓total的值為100的因數（還是倍數？）
+
+    展示時間：4 		（秒）  
+    淡出時間：1 		（秒）
+    動畫時間：5*4=20 	（秒）
+    隱藏時間：14 		（秒）
+    淡入時間：1 		（秒）   
+
+	keyframes設定方式
+	展示時間：20%		（4/20）
+	淡出時間：25%		（1/20 + 4/20）
+	隱藏時間：95%		（14/20 + 1/20 + 4/20）
+	淡入時間：100%	（1/20 + 14/20 + 1/20 + 4/20）
+-->
+<div id="slider">
+	<div class="photo-1"></div>
+    <div class="photo-2"></div>
+    <div class="photo-3"></div>
+    <div class="photo-4"></div>
+</div>
+</body>
+</html>
